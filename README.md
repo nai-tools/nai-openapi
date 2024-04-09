@@ -17,12 +17,12 @@ openapi-generator-cli generate -i ./nai-openapi.json -g python -o python-api/
 ## Notes on Modifications
 
 ### -attribute components.schemas.BindSubscriptionRequest.default is unexpected
-```json
-// [(Code Ommitted)]
+```js
+// [(JSON Ommitted)]
 "BindSubscriptionRequest": {
     "type": "object",
     "properties": {
-        // [(Code Ommitted)]
+        // [(JSON Ommitted)]
         "confirmedReplace": {
             "type": "object", // <- This type (changed to boolean)
             "default": false, // <- Does not match this default value
@@ -34,8 +34,8 @@ openapi-generator-cli generate -i ./nai-openapi.json -g python -o python-api/
             "description": "Whether the user confirmed ignoring the subscription"
         }
     },
-    // [(Code Ommitted)]
+    // [(JSON Ommitted)]
 }
-// [(Code Ommitted)]
+// [(JSON Ommitted)]
 ```
 The above issue is solved in this repository by changing the type of `confirmedReplace` & `confirmedIgnore` to `boolean`.
